@@ -1,0 +1,30 @@
+# Dependências
+node_modules/
+react-app/node_modules/
+
+# Build
+react-app/dist/
+react-app/.vite/
+
+# Ambiente
+.env
+.env.local
+.env*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# UI/UX Skill (referência local, não necessária no repo)
+ui-ux-pro-max2/

@@ -1,0 +1,303 @@
+:root {
+    --bg-color: #121212;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --accent: #FF5E00;
+    --accent-hover: #e05300;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Ubuntu', sans-serif;
+    overflow-x: hidden;
+}
+
+.header {
+    padding: 2rem 5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.logo {
+    font-family: 'Abril Fatface', serif;
+    font-size: 2.2rem;
+    color: var(--text-primary);
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 5% 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background subtle glow */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 50%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(255,94,0,0.08) 0%, rgba(18,18,18,0) 70%);
+    z-index: 0;
+}
+
+.hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 650px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    background: rgba(255, 94, 0, 0.15);
+    color: var(--accent);
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 1.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 94, 0, 0.3);
+}
+
+.hero-title {
+    font-family: 'Abril Fatface', serif;
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.hero-title span {
+    color: var(--accent);
+}
+
+.hero-subtitle {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    max-width: 550px;
+}
+
+.hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--accent);
+    color: #fff;
+    padding: 1.1rem 2.5rem;
+    border-radius: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 25px rgba(255, 94, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-whatsapp::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+.btn-whatsapp:hover {
+    background: var(--accent-hover);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(255, 94, 0, 0.6);
+}
+
+.btn-whatsapp:hover::after {
+    left: 100%;
+}
+
+.cta-note {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.cta-note::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 600px;
+}
+
+.burger-animation {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-width: 550px;
+}
+
+.burger-animation .frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.6));
+}
+
+.frame-1 { animation: animFrame1 0.8s infinite; }
+.frame-2 { animation: animFrame2 0.8s infinite; }
+.frame-3 { animation: animFrame3 0.8s infinite; }
+.frame-4 { animation: animFrame4 0.8s infinite; }
+.frame-5 { animation: animFrame5 0.8s infinite; }
+.frame-6 { animation: animFrame6 0.8s infinite; }
+.frame-7 { animation: animFrame7 0.8s infinite; }
+.frame-8 { animation: animFrame8 0.8s infinite; }
+
+.glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(255,94,0,0.25) 0%, rgba(18,18,18,0) 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    border-radius: 50%;
+    animation: pulse 4s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+}
+
+@keyframes animFrame1 { 0%, 12.49% { opacity: 1; } 12.5%, 100% { opacity: 0; } }
+@keyframes animFrame2 { 0%, 12.49% { opacity: 0; } 12.5%, 24.99% { opacity: 1; } 25%, 100% { opacity: 0; } }
+@keyframes animFrame3 { 0%, 24.99% { opacity: 0; } 25%, 37.49% { opacity: 1; } 37.5%, 100% { opacity: 0; } }
+@keyframes animFrame4 { 0%, 37.49% { opacity: 0; } 37.5%, 49.99% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes animFrame5 { 0%, 49.99% { opacity: 0; } 50%, 62.49% { opacity: 1; } 62.5%, 100% { opacity: 0; } }
+@keyframes animFrame6 { 0%, 62.49% { opacity: 0; } 62.5%, 74.99% { opacity: 1; } 75%, 100% { opacity: 0; } }
+@keyframes animFrame7 { 0%, 74.99% { opacity: 0; } 75%, 87.49% { opacity: 1; } 87.5%, 100% { opacity: 0; } }
+@keyframes animFrame8 { 0%, 87.49% { opacity: 0; } 87.5%, 99.99% { opacity: 1; } 100% { opacity: 0; } }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+    .hero-container {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 860px) {
+    .hero {
+        padding-top: 10rem;
+    }
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 4rem;
+    }
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+    }
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.15rem;
+        max-width: 90%;
+    }
+    .hero-cta {
+        align-items: center;
+    }
+    .cta-note {
+        padding-left: 0;
+    }
+    .cta-note::before {
+        display: none;
+    }
+    .burger-animation {
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    .badge {
+        font-size: 0.85rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .btn-whatsapp {
+        padding: 1rem 2rem;
+        font-size: 1.05rem;
+    }
+    .burger-animation {
+        max-width: 300px;
+    }
+}

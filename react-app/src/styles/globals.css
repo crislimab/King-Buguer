@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-dark: #0A0A0C;
+  --color-brand-orange: #D4420F;
+  --color-brand-red: #8B2C1C;
+  --color-brand-gold: #B8860B;
+  --color-text-primary: #E8E8E8;
+  --color-text-secondary: #9A9A9A;
+  --color-text-muted: #6B6B6B;
+}
+
+@layer base {
+  :root {
+    --font-display: 'Bebas Neue', sans-serif;
+    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  }
+
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-brand-dark text-text-primary overflow-x-hidden antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-normal tracking-wider;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full font-bold text-sm uppercase tracking-wider bg-brand-orange text-white transition-all duration-300 hover:bg-orange-700 hover:-translate-y-1 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-small {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full font-bold text-xs uppercase tracking-wide bg-brand-orange text-white transition-all duration-300 hover:bg-orange-700 hover:-translate-y-0.5 shadow-md hover:shadow-lg;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-5;
+  }
+
+  .badge {
+    @apply inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest bg-orange-950 text-orange-100 border border-orange-800;
+  }
+
+  .card {
+    @apply bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-700 transition-all duration-300 hover:-translate-y-2;
+  }
+}
+
+/* ════════════════════════════════════════════════
+   MELHORIA 1 — Shimmer Text (Hero + CTA)
+   Segue SKILL rule §7: transform/opacity only, easing
+   ════════════════════════════════════════════════ */
+@keyframes shimmerMove {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #D4420F 0%,
+    #B8860B 30%,
+    #FFD700 48%,
+    #F97316 52%,
+    #B8860B 70%,
+    #D4420F 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerMove 3s linear infinite;
+}
+
+/* ════════════════════════════════════════════════
+   MELHORIA 2 — Product Card (gradient border + hover overlay)
+   SKILL: effects-match-style, elevation-consistent
+   ════════════════════════════════════════════════ */
+.product-card {
+  background: #1c1c22;
+  border-radius: 1rem;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Borda com gradiente laranja → dourado */
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(212,66,15,0.4), rgba(184,134,11,0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+/* Intensifica a borda no hover */
+.product-card:hover::before {
+  background: linear-gradient(135deg, #D4420F, #B8860B);
+}
+
+/* Glow shadow no hover — lift pronunciado (SKILL: elevation-consistent) */
+.product-card:hover {
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.4),
+    0 0 30px rgba(212,66,15,0.15);
+}
+
+/* ════════════════════════════════════════════════
+   MELHORIA 4 — Diferencial Card (gradient bg + número)
+   SKILL: style-match, no-emoji-icons, stagger-sequence
+   ════════════════════════════════════════════════ */
+.diferencial-card {
+  position: relative;
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(145deg, #1e1e26 0%, #16161d 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.diferencial-card:hover {
+  border-color: rgba(212,66,15,0.35);
+  box-shadow:
+    0 16px 32px rgba(0,0,0,0.35),
+    0 0 24px rgba(212,66,15,0.12);
+}
+
+/* Numeração visual 01, 02, 03… */
+.diferencial-card__number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: rgba(212,66,15,0.12);
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+.diferencial-card:hover .diferencial-card__number {
+  color: rgba(212,66,15,0.22);
+}
+
+/* Ícone SVG com cor e wrapper */
+.diferencial-card__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(212,66,15,0.18), rgba(184,134,11,0.08));
+  color: #D4420F;
+  margin-bottom: 1.25rem;
+  /* SKILL: stroke-consistency 1.5px no icon */
+}
+.diferencial-card:hover .diferencial-card__icon {
+  background: linear-gradient(135deg, rgba(212,66,15,0.28), rgba(184,134,11,0.15));
+  color: #F97316;
+}
+
+/* ════════════════════════════════════════════════
+   MELHORIA 5 — CTA Animated Background (Stripe-style)
+   SKILL rule §7: use transform/opacity, no width/height animation
+   ════════════════════════════════════════════════ */
+@keyframes ctaGradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cta-animated-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    -45deg,
+    #0A0A0C,
+    #12070a,
+    #1a0a04,
+    #0e0c05,
+    #080b12
+  );
+  background-size: 400% 400%;
+  animation: ctaGradientShift 10s ease infinite;
+  z-index: 0;
+}
+
+/* ════════════════════════════════════════════════
+   MELHORIA 1 (FAB) — Pulse contínuo mais visível
+   SKILL: excessive-motion → max 1-2 elementos por view
+   ════════════════════════════════════════════════ */
+@keyframes fabPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  60%  { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.fab-pulse {
+  animation: fabPulse 2.5s ease-out infinite;
+}
+
+/* ════════════════════════════════════════════════
+   prefers-reduced-motion — SKILL rule: reduced-motion
+   ════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-text {
+    animation: none;
+    -webkit-text-fill-color: #D4420F;
+  }
+  .cta-animated-bg {
+    animation: none;
+  }
+  .fab-pulse {
+    animation: none;
+  }
+}
+
