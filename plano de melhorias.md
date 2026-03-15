@@ -37,11 +37,41 @@ Aqui está o acompanhamento das melhorias sugeridas e o status de implementaçã
 
 ---
 
-### ⏳ 6. Próximos Passos (Pendentes)
-- [ ] **Avaliações/Testimonials:** Adicionar reviews reais de clientes.
-- [ ] **FAQ Accordion:** Para dúvidas comuns sobre entrega e ingredientes.
-- [ ] **Improvement Geral:** Skeleton loaders para carregamento de imagens.
-- [ ] **Mobile Menu:** Melhorar animações de abertura e ícones.
+*Status Geral: 5 de 10 seções principais otimizadas com foco em UX Premium e Performance.*
 
 ---
-*Status Geral: 5 de 10 seções principais otimizadas com foco em UX Premium e Performance.*
+
+Proximos Passos ****(PENDENTES)
+
+6. Geral
+- Adicionar seção "Avaliações/Testimonials" com reviews de clientes (muito importante para credibilidade)
+- Adicionar seção "FAQ" com accordion para perguntas comuns
+- Mais uso do dourado (#B8860B) como accent em borders e highlights
+- Melhorar mobile menu — adicionar animação de abertura, ícone de hambúrguer com animação X
+- Adicionar skeleton loaders para imagens enquanto carregam
+- Efeito "glow" no hover dos botões mais intenso
+- Typography improvement — aumentar leading/line-height em seções de texto para melhor leitura
+- Adicionar breadcrumb ou section anchors na navbar para navegação rápida
+
+7. Microinterações
+- Copy to clipboard para o número de WhatsApp
+- Animação ao clicar nos botões (ripple effect ou scale momentâneo)
+- Loading state se integrado com backend
+- Toast notifications para feedback de ações
+
+8. Performance & Acessibilidade
+- Lazy load para imagens em Destaques e Sobre
+- ARIA labels em todos os CTAs
+- Skip navigation link para acessibilidade
+- Focus states visíveis nos botões
+
+9. Visual Hierarchy
+- Aumentar contraste entre seções com background colors alternados
+- Usar espaçamento mais generoso entre seções (padding aumentado)
+- Tipografia mais bold nos títulos destacados
+
+10. Diferenciais Específicos do "Modern Lion" Theme
+- Adicionar ícone/logo de leão em algum lugar (hero ou navbar)
+- Usar mais vermelho queimado (#8B2C1C) em accents para a agressividade "killer"
+- Efeito de "flame" animado em alguns elementos (ex: ao redor do CTA ou da imagem)
+- Textura sutil ou padrão no background das seções
